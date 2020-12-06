@@ -98,7 +98,7 @@ print("Step: {},         Loss: {}".format(optimizer.iterations.numpy(),
 train_loss_results = []
 train_accuracy_results = []
 
-num_epochs = 100000
+num_epochs = 1000
 
 for epoch in tqdm(range(num_epochs)):
   #print('Epoch: ' + str(epoch))
