@@ -33,12 +33,17 @@ with open('EEG_recording.csv', newline='') as csvfile:
         matchedWord = word2EEG(wordTimings, eegtime)
         if(matchedWord is not None):
             row['wordClass'] = wordLabel.index(matchedWord)
+            row['TP9'] = float(row['TP9'])
+            row['AF7'] = float(row['AF7'])
+            row['TP10'] = float(row['TP10'])
+            row['Right AUX'] = float(row['Right AUX'])
+            del row['timestamps']
             #row['word'] = matchedWord
             output.append(row)
 
 
 with open('training.csv', 'w', newline='') as csvfile:
-    fieldnames = ['timestamps', 'TP9', 'AF7', 'AF8', 'TP10', 'Right AUX', 'wordClass']
+    fieldnames = ['TP9', 'AF7', 'AF8', 'TP10', 'Right AUX', 'wordClass']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()
